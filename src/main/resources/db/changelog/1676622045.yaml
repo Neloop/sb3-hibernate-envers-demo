@@ -1,0 +1,62 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1676622045-1
+      author: mpolanka
+      changes:
+        - createSequence:
+            startValue: 1
+            incrementBy: 1
+            sequenceName: demo_gen
+  - changeSet:
+      id: 1676622045-2
+      author: mpolanka
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: description
+                  type: CLOB
+            tableName: demo
+  - changeSet:
+      id: 1676622045-3
+      author: mpolanka
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                  name: rev
+                  type: BIGINT
+              - column:
+                  name: revtstmp
+                  type: BIGINT
+            tableName: revinfo
+  - changeSet:
+      id: 1676622045-4
+      author: mpolanka
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    primaryKey: true
+                  name: rev
+                  type: BIGINT
+              - column:
+                  name: revtype
+                  type: TINYINT
+              - column:
+                  name: description
+                  type: CLOB
+            tableName: demo_aud
